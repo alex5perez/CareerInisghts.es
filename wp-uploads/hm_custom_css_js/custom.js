@@ -1,0 +1,3 @@
+document.addEventListener("DOMContentLoaded",function(){if(!document.querySelector('[data-barba="wrapper"]')||!document.querySelector('[data-barba="container"]')){console.error("❌ Error: No se encontraron los contenedores de Barba.js. Asegúrate de agregarlos en tu HTML.");return}
+if(typeof barba==="undefined"){var script=document.createElement("script");script.src="https://unpkg.com/@barba/core";script.onload=function(){iniciarTransiciones()};document.head.appendChild(script)}else{iniciarTransiciones()}
+function iniciarTransiciones(){barba.init({sync:!0,transitions:[{name:"fade",leave(data){return new Promise((resolve)=>{data.current.container.classList.add("fade-out");setTimeout(resolve,500)})},enter(data){data.next.container.classList.remove("fade-out")},},],})}})
